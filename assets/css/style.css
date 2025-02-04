@@ -1,0 +1,36 @@
+html {
+	background-color: darkslateblue;
+	font-size: 14px;
+	width: 100%;
+}
+
+h1 {
+	font-size: 2rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
+
+#page {
+	width: 75%;
+	margin: auto;
+	background-color: darkturquoise;
+	border: 12px solid black;
+}
+
+.entete {
+	text-align: center;
+	color: darkslateblue;
+}
+
+#aboutme {
+	background-color: skyblue;
+	border: 2px dotted indigo;
+}
+
+footer {
+	background-color: teal;
+	border: 1px solid indigo;
+	text-align: center;
+}
