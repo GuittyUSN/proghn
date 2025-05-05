@@ -1,79 +1,145 @@
-<!DOCTYPE html>
-<div id="page">
-	<html>
-		<head>
-			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<link rel="stylesheet" href="assets/css/style.css" >
-		</head>
-		<body>
-			<div class="entete">
-				<h1 align="center">Le Petit Chaperon Rouge</h1>
-				<h2 align="center">Licence 3 en skateboard</h2>
-				<center>
-					<img src="./assets/img/logo_USN.jpg" width="20%" />
-					<img src="./assets/img/skateboard.png" width="10%" />
-				</center>
-			</div>
-			<div id="aboutme">
-				<p>
-					Mon CV des trois dernières années :
-				</p>
-				<table border="1px">
-					<thead>
-						<tr>
-							<th>
-								Année universitaire
-							</th>
-							<th>
-								Statut
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								2023-2024
-							</td>
-							<td>
-								L2 en skateboard
-							</td>
-						</tr>
-						<tr>
-							<td>
-								2022-2023
-							</td>
-							<td>
-								Réorientation en L1 skateboard
-							</td>
-						</tr>
-						<tr>
-							<td>
-								2021-2022
-							</td>
-							<td>
-								L2 en DJ set dans une autre université
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				<p>
-					Voici les cinq derniers livres que j'ai lu pour mes cours de skateboard:
-				</p>
-				<ol>
-					<li><i>Notre-Dame-des-Fleurs</i>, Jean Genet, édition Folio</li>
-					<li><i>Le Journal du Voleur</i>, Jean Genet, édition Folio</li>
-					<li><i>Les Paravents</i>, Jean Genet, édition Folio Théâtre</li>
-					<li><i>Les Bonnes</i>, Jean Genet, édition Folio Théâtre</li>
-					<li><i>Le condamné à mort et autres poèmes suivi de Le Funambule</i>, Jean Genet, édition Gallimard</li>
-				</ol>
-			</div>
-			<footer>
-				<p>
-					<a href="http://www.univ-paris3.fr/">Site de la Sorbonne Nouvelle.</a>
-				</p>
-			</footer>
-		</body>
-	</div>
-</html>
 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"> <!-- site encodé en UTF-8, s'adaptant à la largeur de l'écran sur lequel il est lu -->
+    <link rel="stylesheet" href="assets/css/style.css"><!-- se réfère à la feuille de style CSS pour la mise en forme -->
+    <script type="text/javascript" language="javascript" src="assets/js/main.js"></script><!-- se réfère au code javascript pour les fonctions utilisées -->
+    <script src="assets/js/canvasjs.min.js"></script><!-- se réfère au code javascript utilisé pour le graphique -->
+    <title>Lecture des données dans un fichier</title><!-- titre de l'onglet sur le navigateur -->
+    <link rel="icon" href="assets/img/favicon.png" type="image/icon type"><!-- icône de l'onglet sur le navigateur -->
+</head>
+<body>
+    <div id="page">
+        <div class="entete">
+            <div id="logo"><img src="assets/img/sorbonne-nouvelle-devise-trapezes.png" alt="logoSBN" width="20%" height="220%"></div> <!-- alt sert à afficher la description de l'image, si jamlis cette dernière n'est pas visualisée correctement par le navigateur -->
+            <h1>Jane DOE</h1>
+            <h2>UFR LLD, Licence de skateboard - Campus Nation</h2> <!-- heading=en-tête, de type 2-->
+            <img src="./assets/img/skateboard.png" alt="portrait_réaliste" width="10%" height="10%">
+        </div>
+        <br><br><br>
+        <center><button id="button_aboutme" class="fade" onclick="toggle_aboutme()">Plus d'info sur mon CV</button></center> <!-- appelle une fonction javascript qui créé un bouton pour cacher/afficher le CV -->
+        <div id="aboutme" style="display:none;"><!-- Display définit sur "none" donc le CV est caché initialement -->
+            <p id="cv">
+                <b>Mon CV des trois dernières années :</b>
+                <table>
+                    <!-- tableau indiquant mon parcours scolaire des dernières années -->
+                    <thead>
+                        <tr><th>Année universitaire</th><th>Parcours</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>2023-2024</td><td>L2 en skateboard</td></tr>
+                        <tr><td>2022-2023</td><td>Réorientation en L1 skateboard</td></tr>
+                        <tr><td>2021-2022</td><td>L2 en DJ set dans une autre université</td></tr>
+                    </tbody>
+                </table>
+            </p>
+            <br>
+            <p id="lectures">
+            <p><b>Liste de mes dernières lectures dans le cadre de ma licence de skateboard:</b></p>
+            <ol>
+                <!-- liste de livres lus -->
+                <li><i>Notre-Dame-des-Fleurs</i>, Jean Genet, édition Folio</li>
+                <li><i>Le Journal du Voleur</i>, Jean Genet, édition Folio</li>
+                <li><i>Les Paravents</i>, Jean Genet, édition Folio Théâtre</li>
+                <li><i>Les Bonnes</i>, Jean Genet, édition Folio Théâtre</li>
+                <li><i>Le condamné à mort et autres poèmes suivi de Le Funambule</i>, Jean Genet, édition Gallimard</li>
+            </ol>
+            </p>
+        </div>
+        <br>
+        <!-- Analyse des données dans un fichier -->
+        <div id="container">
+            <h3 style="text-align:center;">Analyse des données dans un fichier</h3>
+            <div id="page-wrapper">
+                <div>
+                    <center><button id="button_aide" class="fade" onclick="toggle_aide()">Afficher l'aide</button></center> <!-- crée une fonction javascript qui créé un bouton pour chacher/afficher l'aide -->
+                    <div id="aide" style="display:none;">
+                        <p>
+                            <b>Voici un mode d'emploi :</b>
+                            <ul>
+                                <li>Etape 1 : Chargez un texte au format .txt à l'aide du bouton Parcourir.</li>
+                                <li>Etape 2 (facultatif) : Précisez les délimiteurs de votre choix puis cliquez sur le bouton Segmentation.</li>
+                                <li>Le bouton Dictionnaire : permet d'obtenir un tableau qui classe les tokens de façon décroissante en fonction du nombre d'occurences.</li>
+                                <li>Le bouton GREP : Entrez un pôle (une regex ou un mot) puis cliquez sur GREP pour obtenir le tableau des lignes d'occurences.</li>
+                                <li>Le bouton Concordancier : Entrez un pôle (une regex ou un mot) et une longueur de contexte puis cliquez sur Concordancier pour obtenir un tableau avec le contexte gauche et droit du pôle recherché.</li>
+                                <li>Le bouton Nombre de phrases : cliquez et il affichera le nombre de phrases.</li>
+                                <li>Le bouton Mots les plus longs : cliquez et il affichera les 10 mots les plus longs du texte.</li>
+                                <li>Le bouton Pie Chart : Saisissez des stopwords et cliquez sur le bouton pour afficher un graphique des 30 mots les plus fréquents dans le texte hors stopwords.</li>
+                                <li>Le bouton /kujuj/ : ajoute uj comme suffixe à chaque mot du texte chargé...</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+        </br>
+                <div>
+                    <span>
+                        <label for="fileInput" class="btn"><small>Sélectionner un fichier au format .txt :</small></label><!-- bouton permettant de charger un document .txt -->
+                        <input id="fileInput" type="file" accept="text/plain" name="Fichier (.txt)" />
+                        <!-- les id permettent d'identifier les éléments utilisés par les fonctions javascript -->
+                    </span>
+                </div>
+                <br />
+                <p style="text-align:center;">
+                    <small>
+                        <label for="delimID" class="mylabel">Délimiteur(s)</label><!-- les éléments labels permettent d'entrer du texte qui sera ensuite récupéré pour les fonctions javascript -->
+                        &nbsp; <!-- permet d'ajouter un espace sans passer par le CSS -->
+                        <input type="text" value=" ,;’'~|&#@=`-.?!%*$()[]{}_:+«»§\/" name="delim" id="delimID" size="40" />
+                    </small>
+                    <br />
+                    <small>
+                        <label for="poleID" class="mylabel">Pôle</label>
+                        &nbsp;
+                        <input type="text" placeholder="entrez un pôle..." name="pole" id="poleID" size="20" /><!-- le placeholder n'est pas un string contenu dans l'élément -->
+                    </small>
+                    &nbsp;
+                    <small>
+                        <label for="lgID" class="mylabel">Longueur</label>
+                        &nbsp;
+                        <input type="text" value="10" name="lg" id="lgID" size="10" />
+                    </small>
+                    <br />
+                    <small>
+                        <label for="stopwordID" class="mylabel">Mots grammaticaux (Stopwords en anglais)</label>
+                        &nbsp;
+                        <input type="text" value="de,le,la,les,à,et,des,un,une,du,que,en,l,que,qu,d,s,se,ne,n,ce,me,sa" name="stopwords" id="stopwordID" size="60" />
+                    </small>
+                    <br />
+                    <br />
+                    <button class="special" onclick="alert('Voici un site qui permet d\'analyser des textes.');"><span>Bonjour</span></button> <!-- Bouton bonjour affichant une boite de dialogue expliquant le but du site -->
+                    <br />
+                    <br />
+                    <!-- Création de boutons appelant chacun une fonction javascript  -->
+                    <button class="fade" onclick="segText()"><span>Segmentation</span></button>
+                    <button class="fade" id="btnDict" onclick="dictionnaire()"><span>Dictionnaire</span></button>
+                    <button class="fade" id="btnGrep" onclick="grep()"><span>GREP</span></button>
+                    <button class="fade" onclick="féminisation()"><span>Féminisation</span></button>
+                    <button class="fade" onclick="concord()"><span>Concordancier</span></button>
+                    <button class="fade" onclick="kujuj()"><span>/kujuj/</span></button>
+                    <button class="fade" onclick="nbPhrases()"><span>Nombre de phrases</span></button>
+                    <button class="fade" onclick="tokenLong()">Mots les plus longs</button>
+                    <button class="fade" onclick="pieChart()"><span>grapheCamembert-Pie Chart</span></button>
+                </p>
+            </div>
+            <center>
+                <!-- logger1 et logger2 permettent d'affichier le nombre de tokens et de lignes après la segmentation -->
+                <div id="logger1" style="width:100%"></div>
+                <div id="logger2" style="width:100%"></div>
+                <div id="logger3" style="width:100%"></div> <!-- permet d'afficher les messages d'erreur -->
+            </center>
+            <br />
+            <div id="Global">
+                <div id="fileDisplayArea"></div><!-- l'aire où s'affiche le texte chargé -->
+                <div id="analysisDisplay"></div><!-- l'aire où s'afficheront les résultats des outils d'analyse -->
+                <div id="chartContainer" style="height: 300px; width: 100%;"></div><!-- l'aire où s'affichera le graphique -->
+            </div>
+        </div>
+        <!-- FIN Analyse des données dans un fichier -->
+        <footer>
+            <br><br>
+            <a href="http://www.univ-paris3.fr/" class="rainbowBtn">Site de l'USN</a><!-- joli bouton redirigeant vers le site de l'USN -->
+            <br>
+        </footer>
+        </div>
+</body>
+</html>
